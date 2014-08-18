@@ -21,7 +21,7 @@
  * @package Plugin_Name
  * @author  Your Name <email@example.com>
  */
-class Plugin_Name {
+class GKPN {
 
 	/**
 	 * Plugin version, used for cache-busting of style and script file references.
@@ -33,8 +33,6 @@ class Plugin_Name {
 	const VERSION = '1.0.0';
 
 	/**
-	 * @TODO - Rename "plugin-name" to the name of your plugin
-	 *
 	 * Unique identifier for your plugin.
 	 *
 	 *
@@ -46,7 +44,7 @@ class Plugin_Name {
 	 *
 	 * @var      string
 	 */
-	protected $plugin_slug = 'plugin-name';
+	protected $plugin_slug = 'google-knowledge-phone-number';
 
 	/**
 	 * Instance of this class.
@@ -78,8 +76,8 @@ class Plugin_Name {
 		/* Define custom functionality.
 		 * Refer To http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		add_action( '@TODO', array( $this, 'action_method_name' ) );
-		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
+		//add_action( '@TODO', array( $this, 'action_method_name' ) );
+		//add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
 	}
 

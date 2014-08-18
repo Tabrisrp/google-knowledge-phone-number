@@ -1,12 +1,12 @@
 <?php
 /**
- * Plugin Name.
+ * Google Knowledge Phone Number
  *
- * @package   Plugin_Name_Admin
- * @author    Your Name <email@example.com>
+ * @package   GKPN_Admin
+ * @author    Remy Perona <remperona@gmail.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      http://remyperona.fr
+ * @copyright 2014 Rémy Perona
  */
 
 /**
@@ -18,10 +18,10 @@
  *
  * @TODO: Rename this class to a proper name for your plugin.
  *
- * @package Plugin_Name_Admin
- * @author  Your Name <email@example.com>
+ * @package GKPN_admin
+ * @author  Remy Perona <remperona@gmail.com>
  */
-class Plugin_Name_Admin {
+class GKPN_Admin {
 
 	/**
 	 * Instance of this class.
@@ -61,12 +61,9 @@ class Plugin_Name_Admin {
 		/*
 		 * Call $plugin_slug from public plugin class.
 		 *
-		 * @TODO:
-		 *
-		 * - Rename "Plugin_Name" to the name of your initial plugin class
 		 *
 		 */
-		$plugin = Plugin_Name::get_instance();
+		$plugin = GKPN::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
 		// Load admin style sheet and JavaScript.
@@ -86,8 +83,8 @@ class Plugin_Name_Admin {
 		 * Read more about actions and filters:
 		 * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		add_action( '@TODO', array( $this, 'action_method_name' ) );
-		add_filter( '@TODO', array( $this, 'filter_method_name' ) );
+		//add_action( '@TODO', array( $this, 'action_method_name' ) );
+		//add_filter( '@TODO', array( $this, 'filter_method_name' ) );
 
 	}
 
@@ -120,10 +117,6 @@ class Plugin_Name_Admin {
 	/**
 	 * Register and enqueue admin-specific style sheet.
 	 *
-	 * @TODO:
-	 *
-	 * - Rename "Plugin_Name" to the name your plugin
-	 *
 	 * @since     1.0.0
 	 *
 	 * @return    null    Return early if no settings page is registered.
@@ -136,17 +129,13 @@ class Plugin_Name_Admin {
 
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), Plugin_Name::VERSION );
+			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), GKPN::VERSION );
 		}
 
 	}
 
 	/**
 	 * Register and enqueue admin-specific JavaScript.
-	 *
-	 * @TODO:
-	 *
-	 * - Rename "Plugin_Name" to the name your plugin
 	 *
 	 * @since     1.0.0
 	 *
@@ -160,7 +149,7 @@ class Plugin_Name_Admin {
 
 		$screen = get_current_screen();
 		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), Plugin_Name::VERSION );
+			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), GKPN::VERSION );
 		}
 
 	}
@@ -179,16 +168,10 @@ class Plugin_Name_Admin {
 		 *
 		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 		 *
-		 * @TODO:
-		 *
-		 * - Change 'Page Title' to the title of your plugin admin page
-		 * - Change 'Menu Text' to the text for menu item for the plugin settings page
-		 * - Change 'manage_options' to the capability you see fit
-		 *   For reference: http://codex.wordpress.org/Roles_and_Capabilities
 		 */
 		$this->plugin_screen_hook_suffix = add_options_page(
-			__( 'Page Title', $this->plugin_slug ),
-			__( 'Menu Text', $this->plugin_slug ),
+			__( 'Google Knowledge Phone Number', $this->plugin_slug ),
+			__( 'Google Knowledge Phone Number', $this->plugin_slug ),
 			'manage_options',
 			$this->plugin_slug,
 			array( $this, 'display_plugin_admin_page' )

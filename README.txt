@@ -1,4 +1,4 @@
-=== @TODO: Plugin Name ===
+=== Google Knowledge Phone Number ===
 Contributors: tabrisrp
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6V74BBTNMWW38&lc=FR&item_name=Rémy%20Perona&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted
 Tags: rich-snippets, google, phone number, seo, knowledge graph
