@@ -50,8 +50,6 @@ class GKPN_Admin {
 	private function __construct() {
 
 		/*
-		 * @TODO :
-		 *
 		 * - Uncomment following lines if the admin class should only be available for super admins
 		 */
 		/* if( ! is_super_admin() ) {
@@ -66,10 +64,6 @@ class GKPN_Admin {
 		$plugin = GKPN::get_instance();
 		$this->plugin_slug = $plugin->get_plugin_slug();
 
-		// Load admin style sheet and JavaScript.
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
-
 		// Add the options page and menu item.
 		add_action( 'admin_menu', array( $this, 'add_plugin_admin_menu' ) );
 
@@ -83,8 +77,7 @@ class GKPN_Admin {
 		 * Read more about actions and filters:
 		 * http://codex.wordpress.org/Plugin_API#Hooks.2C_Actions_and_Filters
 		 */
-		//add_action( '@TODO', array( $this, 'action_method_name' ) );
-		//add_filter( '@TODO', array( $this, 'filter_method_name' ) );
+		add_action( 'admin_init', array( $this, 'register_gkpn_settings' ) );
 
 	}
 
@@ -98,7 +91,6 @@ class GKPN_Admin {
 	public static function get_instance() {
 
 		/*
-		 * @TODO :
 		 *
 		 * - Uncomment following lines if the admin class should only be available for super admins
 		 */
@@ -112,46 +104,6 @@ class GKPN_Admin {
 		}
 
 		return self::$instance;
-	}
-
-	/**
-	 * Register and enqueue admin-specific style sheet.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
-	 */
-	public function enqueue_admin_styles() {
-
-		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
-			return;
-		}
-
-		$screen = get_current_screen();
-		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_style( $this->plugin_slug .'-admin-styles', plugins_url( 'assets/css/admin.css', __FILE__ ), array(), GKPN::VERSION );
-		}
-
-	}
-
-	/**
-	 * Register and enqueue admin-specific JavaScript.
-	 *
-	 * @since     1.0.0
-	 *
-	 * @return    null    Return early if no settings page is registered.
-	 */
-	public function enqueue_admin_scripts() {
-
-		if ( ! isset( $this->plugin_screen_hook_suffix ) ) {
-			return;
-		}
-
-		$screen = get_current_screen();
-		if ( $this->plugin_screen_hook_suffix == $screen->id ) {
-			wp_enqueue_script( $this->plugin_slug . '-admin-script', plugins_url( 'assets/js/admin.js', __FILE__ ), array( 'jquery' ), GKPN::VERSION );
-		}
-
 	}
 
 	/**
@@ -204,30 +156,100 @@ class GKPN_Admin {
 
 	}
 
-	/**
-	 * NOTE:     Actions are points in the execution of a page or process
-	 *           lifecycle that WordPress fires.
-	 *
-	 *           Actions:    http://codex.wordpress.org/Plugin_API#Actions
-	 *           Reference:  http://codex.wordpress.org/Plugin_API/Action_Reference
-	 *
-	 * @since    1.0.0
-	 */
-	public function action_method_name() {
-		// @TODO: Define your action hook callback here
-	}
+	public function register_gkpn_settings() {
 
-	/**
-	 * NOTE:     Filters are points of execution in which WordPress modifies data
-	 *           before saving it or sending it to the browser.
-	 *
-	 *           Filters: http://codex.wordpress.org/Plugin_API#Filters
-	 *           Reference:  http://codex.wordpress.org/Plugin_API/Filter_Reference
-	 *
-	 * @since    1.0.0
-	 */
-	public function filter_method_name() {
-		// @TODO: Define your filter hook callback here
-	}
+	    include_once( plugin_dir_path( realpath( dirname( __FILE__ ) ) ) . 'includes/class.settings-api.php' );
 
+		$sections = array(
+		    array(
+		        'id' => 'gkpn_customer_support',
+		        'title' => __( 'Customer Support', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_technical_support',
+                'title' => __( 'Technical Support', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_billing_support',
+                'title' => __( 'Billing Support', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_bill_payment',
+                'title' => __( 'Bill Payment', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_sales',
+                'title' => __( 'Sales', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_reservations',
+                'title' => __( 'Reservations', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_credit_card_support',
+                'title' => __( 'Credit Card Support', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_emergency',
+                'title' => __( 'Emergency', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_baggage_tracking',
+                'title' => __( 'Baggage Tracking', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_roadside_assistance',
+                'title' => __( 'Roadside Assistance', $this->plugin_slug )
+            ),
+            array(
+                'id' => 'gkpn_package_tracking',
+                'title' => __( 'Package Tracking', $this->plugin_slug )
+            ),
+        );
+
+        $fields_settings = array(
+                array(
+                    'name' => 'telephone',
+                    'label' => __( 'Phone number', $this->plugin_slug ),
+                    'desc' => __( 'Required. An internationalized version of the phone number, starting with the "+" symbol and country code', $this->plugin_slug ),
+                    'type' => 'text',
+                ),
+                array(
+                    'name' => 'area_served',
+                    'label' => __( 'Area Served', $this->plugin_slug ),
+                    'desc' => sprintf( __( 'Optional. The geographical region served by the number, specified as a schema.org/AdministrativeArea. Countries may be specified concisely using just their <a href="%s">standard ISO-3166</a> two-letter code, separated by a comma. If omitted, the number is assumed to be global.', $this->plugin_slug ), 'http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements' ),
+                    'type' => 'text',
+                ),
+                array(
+                    'name' => 'contact_option',
+                    'label' => __( 'Contact Option', $this->plugin_slug ),
+                    'desc' => __( 'Optional. Phone number details', $this->plugin_slug ),
+                    'type' => 'multicheck',
+                    'options' => array(
+                        'TollFree' => __( 'Toll Free', $this->plugin_slug ),
+                        'HearingImpairedSupported' => __( 'Support for hearing impaired', $this->plugin_slug)
+                    )
+                ),
+                array(
+                    'name' => 'available_language',
+                    'label' => __( 'Available Languages', $this->plugin_slug ),
+                    'desc' => __( 'Optional details about the language spoken. Languages may be specified by their common English name, separated by a comma. If omitted, the language defaults to English.', $this->plugin_slug ),
+                    'type' => 'text'
+                )
+            );
+
+        $fields = array();
+        foreach ( $sections as $section ) {
+            $fields[$section['id']] = $fields_settings;
+        }
+
+        $settings_api = WeDevs_Settings_API::get_instance();;
+
+        //set sections and fields
+        $settings_api->set_sections( $sections );
+        $settings_api->set_fields( $fields );
+
+        //initialize them
+        $settings_api->admin_init();
+    }
 }

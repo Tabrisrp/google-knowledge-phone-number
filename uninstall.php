@@ -2,11 +2,11 @@
 /**
  * Fired when the plugin is uninstalled.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Google Knowledge Phone Number
+ * @author    Remy Perona <remperona@gmail.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      http://remyperona.fr
+ * @copyright 2014 Remy Perona
  */
 
 // If uninstall not called from WordPress, then exit
@@ -19,58 +19,53 @@ global $wpdb;
 if ( is_multisite() ) {
 
 	$blogs = $wpdb->get_results( "SELECT blog_id FROM {$wpdb->blogs}", ARRAY_A );
-		/* @TODO: delete all transient, options and files you may have added
-		delete_transient( 'TRANSIENT_NAME' );
-		delete_option('OPTION_NAME');
-		//info: remove custom file directory for main site
-		$upload_dir = wp_upload_dir();
-		$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "CUSTOM_DIRECTORY_NAME" . DIRECTORY_SEPARATOR;
-		if (is_dir($directory)) {
-			foreach(glob($directory.'*.*') as $v){
-				unlink($v);
-			}
-			rmdir($directory);
-		}
-		*/
+		delete_option('gkpn_customer_support');
+		delete_option('gkpn_technical_support');
+		delete_option('gkpn_billing_support');
+		delete_option('gkpn_bill_payment');
+		delete_option('gkpn_sales');
+		delete_option('gkpn_reservations');
+		delete_option('gkpn_credit_card_support');
+		delete_option('gkpn_emergency');
+		delete_option('gkpn_baggage_tracking');
+		delete_option('gkpn_roadside_assistance');
+		delete_option('gkpn_package_tracking');
+
 	if ( $blogs ) {
 
 	 	foreach ( $blogs as $blog ) {
 			switch_to_blog( $blog['blog_id'] );
-			/* @TODO: delete all transient, options and files you may have added
-			delete_transient( 'TRANSIENT_NAME' );
-			delete_option('OPTION_NAME');
-			//info: remove custom file directory for main site
-			$upload_dir = wp_upload_dir();
-			$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "CUSTOM_DIRECTORY_NAME" . DIRECTORY_SEPARATOR;
-			if (is_dir($directory)) {
-				foreach(glob($directory.'*.*') as $v){
-					unlink($v);
-				}
-				rmdir($directory);
-			}
-			//info: remove and optimize tables
-			$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."TABLE_NAME`");
+			delete_option('gkpn_customer_support');
+		    delete_option('gkpn_technical_support');
+		    delete_option('gkpn_billing_support');
+		    delete_option('gkpn_bill_payment');
+		    delete_option('gkpn_sales');
+		    delete_option('gkpn_reservations');
+		    delete_option('gkpn_credit_card_support');
+		    delete_option('gkpn_emergency');
+		    delete_option('gkpn_baggage_tracking');
+		    delete_option('gkpn_roadside_assistance');
+		    delete_option('gkpn_package_tracking');
+
+			//info: optimize table
 			$GLOBALS['wpdb']->query("OPTIMIZE TABLE `" .$GLOBALS['wpdb']->prefix."options`");
-			*/
 			restore_current_blog();
 		}
 	}
 
 } else {
-	/* @TODO: delete all transient, options and files you may have added
-	delete_transient( 'TRANSIENT_NAME' );
-	delete_option('OPTION_NAME');
-	//info: remove custom file directory for main site
-	$upload_dir = wp_upload_dir();
-	$directory = $upload_dir['basedir'] . DIRECTORY_SEPARATOR . "CUSTOM_DIRECTORY_NAME" . DIRECTORY_SEPARATOR;
-	if (is_dir($directory)) {
-		foreach(glob($directory.'*.*') as $v){
-			unlink($v);
-		}
-		rmdir($directory);
-	}
-	//info: remove and optimize tables
-	$GLOBALS['wpdb']->query("DROP TABLE `".$GLOBALS['wpdb']->prefix."TABLE_NAME`");
+	delete_option('gkpn_customer_support');
+    delete_option('gkpn_technical_support');
+    delete_option('gkpn_billing_support');
+    delete_option('gkpn_bill_payment');
+    delete_option('gkpn_sales');
+    delete_option('gkpn_reservations');
+    delete_option('gkpn_credit_card_support');
+    delete_option('gkpn_emergency');
+    delete_option('gkpn_baggage_tracking');
+    delete_option('gkpn_roadside_assistance');
+    delete_option('gkpn_package_tracking');
+
+	//info: optimize table
 	$GLOBALS['wpdb']->query("OPTIMIZE TABLE `" .$GLOBALS['wpdb']->prefix."options`");
-	*/
 }

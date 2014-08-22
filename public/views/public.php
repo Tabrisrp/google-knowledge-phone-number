@@ -5,12 +5,20 @@
  * This typically includes any information, if any, that is rendered to the
  * frontend of the theme when the plugin is activated.
  *
- * @package   Plugin_Name
- * @author    Your Name <email@example.com>
+ * @package   Google Knowledge Phone Number
+ * @author    Remy Perona <remperona@gmail.com>
  * @license   GPL-2.0+
- * @link      http://example.com
- * @copyright 2014 Your Name or Company Name
+ * @link      http://remyperona.fr
+ * @copyright 2014 Remy Perona
  */
 ?>
-
-<!-- This file is used to markup the public facing aspect of the plugin. -->
+<?php if ( is_front_page() ) : ?>
+<script type="application/ld+json">
+{ "@context" : "http://schema.org",
+  "@type" : "Organization",
+  "url" : "<?php echo home_url( '/' ); ?>",
+  "contactPoint" : [
+    <?php echo $contact_types; ?>
+] }
+</script>
+<?php endif; ?>

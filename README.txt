@@ -4,15 +4,35 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=6V74B
 Tags: rich-snippets, google, phone number, seo, knowledge graph
 Requires at least: 3.5.1
 Tested up to: 4.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add JSON-LD markup in your WordPress website, to display your company's phone number(s) on Google Knowledge Panels
+Add JSON-LD markup in your WordPress website, to display your company's phone number(s) on Google Knowledge Panels.
 
 == Description ==
 
-see https://support.google.com/webmasters/answer/4620709?hl=en for more information about this
+You can now include your company's number in search results.
+
+By using this plugin on your official site, Google will be able to display it in the Knowledge panel for some searches.
+
+For now, there is a defined list of phone numbers that can be included :
+
+* customer service
+* technical support
+* billing support
+* bill payment
+* sales
+* reservations
+* credit card support
+* emergency
+* baggage tracking
+* roadside assistance
+* package tracking
+
+Additionally, You will be able to set some options for each type of number, like the served areas, languages spoken and more.
+
+For more information, you can read the official page : https://support.google.com/webmasters/answer/4620709?hl=en
 
 == Installation ==
 
@@ -38,19 +58,13 @@ see https://support.google.com/webmasters/answer/4620709?hl=en for more informat
 3. Upload the `google-knowledge-phone-number` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 
-
-== Frequently Asked Questions ==
-
-
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+None yet
 
 == Changelog ==
+= 1.0.1 =
+* Fix activation on multisite
 
-= 1.0 =
+= 1.0.0 =
 * Initial release

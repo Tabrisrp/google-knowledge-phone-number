@@ -5,10 +5,9 @@ msgstr ""
 "Project-Id-Version: Google Knowledge Phone Number 1.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/plugins/plugin-name\n"
 "POT-Creation-Date: 2014-08-21 21:24+0100\n"
-"PO-Revision-Date: 2014-08-21 21:25+0100\n"
+"PO-Revision-Date: 2014-08-21 21:33+0100\n"
 "Last-Translator: Rémy Perona <remperona@gmail.com>\n"
 "Language-Team: Remy Perona <remperona@gmail.com>\n"
-"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,75 +16,78 @@ msgstr ""
 "esc_attr__;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;_x:1,2c;_n:1,2\n"
 "X-Poedit-Basepath: /Users/yui/Sites/wordpress/wp-content/plugins/google-"
 "knowledge-phone-number/\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+"Language: fr\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: admin/gkpn-admin.php:125 admin/gkpn-admin.php:126 admin/views/admin.php:17
 msgid "Google Knowledge Phone Number"
-msgstr ""
+msgstr "Numéros de téléphone Google Knowledge"
 
 #: admin/gkpn-admin.php:152
 msgid "Settings"
-msgstr ""
+msgstr "Réglages"
 
 #: admin/gkpn-admin.php:166
 msgid "Customer Support"
-msgstr ""
+msgstr "Assistance client"
 
 #: admin/gkpn-admin.php:170
 msgid "Technical Support"
-msgstr ""
+msgstr "Assistance technique"
 
 #: admin/gkpn-admin.php:174
 msgid "Billing Support"
-msgstr ""
+msgstr "Assistance facturation"
 
 #: admin/gkpn-admin.php:178
 msgid "Bill Payment"
-msgstr ""
+msgstr "Paiement factures"
 
 #: admin/gkpn-admin.php:182
 msgid "Sales"
-msgstr ""
+msgstr "Ventes"
 
 #: admin/gkpn-admin.php:186
 msgid "Reservations"
-msgstr ""
+msgstr "Réservations"
 
 #: admin/gkpn-admin.php:190
 msgid "Credit Card Support"
-msgstr ""
+msgstr "Assistance carte bancaire"
 
 #: admin/gkpn-admin.php:194
 msgid "Emergency"
-msgstr ""
+msgstr "Urgences"
 
 #: admin/gkpn-admin.php:198
 msgid "Baggage Tracking"
-msgstr ""
+msgstr "Suivi des bagages"
 
 #: admin/gkpn-admin.php:202
 msgid "Roadside Assistance"
-msgstr ""
+msgstr "Assistance routière"
 
 #: admin/gkpn-admin.php:206
 msgid "Package Tracking"
-msgstr ""
+msgstr "Suivi de colis"
 
 #: admin/gkpn-admin.php:213
 msgid "Phone number"
-msgstr ""
+msgstr "Numéro de téléphone"
 
 #: admin/gkpn-admin.php:214
 msgid ""
 "Required. An internationalized version of the phone number, starting with "
 "the \"+\" symbol and country code"
 msgstr ""
+"Requis. Une version internationale du numéro de téléphone, commençant par le "
+"symbole \"+\" et le code pays"
 
 #: admin/gkpn-admin.php:219
 msgid "Area Served"
-msgstr ""
+msgstr "Zones desservies"
 
 #: admin/gkpn-admin.php:220
 #, php-format
@@ -95,26 +97,31 @@ msgid ""
 "just their <a href=\"%s\">standard ISO-3166</a> two-letter code, separated "
 "by a comma. If omitted, the number is assumed to be global."
 msgstr ""
+"Optionel. La ou Les zones géographiques desservies par ce numéro, spécifiées "
+"suivant le schema.org/AdministrativeArea. Les pays peuvent être spécifiés de "
+"manière concise en utilisant leur code à 2 lettres <a href=\"%s\">standard "
+"ISO-3166</a>, séparés par une virgule. Si laissé vide, le numéro est "
+"considéré comme global."
 
 #: admin/gkpn-admin.php:225
 msgid "Contact Option"
-msgstr ""
+msgstr "Options de contact"
 
 #: admin/gkpn-admin.php:226
 msgid "Optional. Phone number details"
-msgstr ""
+msgstr "Optionnel. Détails pour le numéro de téléphone"
 
 #: admin/gkpn-admin.php:229
 msgid "Toll Free"
-msgstr ""
+msgstr "Numéro surtaxé"
 
 #: admin/gkpn-admin.php:230
 msgid "Support for hearing impaired"
-msgstr ""
+msgstr "Aide pour déficient auditif"
 
 #: admin/gkpn-admin.php:235
 msgid "Available Languages"
-msgstr ""
+msgstr "Langues parlées"
 
 #: admin/gkpn-admin.php:236
 msgid ""
@@ -122,9 +129,15 @@ msgid ""
 "their common English name, separated by a comma. If omitted, the language "
 "defaults to English."
 msgstr ""
+"Détails optionnels des langues parlées. Les langues peuvent être spécifiées "
+"par leurs noms courants en anglais, séparés par une virgule. Si laissé vide, "
+"la langue par défaut sera l'anglais."
 
 #: admin/views/admin.php:19
 msgid ""
 "You can fill only the desired tab(s) data and leave the others blank. You "
 "have to save every tab individually for your changes to take effect."
 msgstr ""
+"Vous pouvez remplir uniquement le contenu des onglets souhaités, et laisser "
+"le reste vide. Vous devez sauvegarder chaque onglet individuellement pour "
+"que les changements soient pris en compte."
